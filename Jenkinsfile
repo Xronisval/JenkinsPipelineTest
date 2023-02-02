@@ -1,14 +1,19 @@
 pipeline{
     agent any
-    parameters{
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should i say hello to?')
-    }
     stages{
         stage('Example'){
-            steps {
-                echo "Hello ${params.PERSON}"
+            steps{
+                echo 'Hello world'
+                script{
+                    def browsers = ['chrome', 'firefox']
+                    for (int i=0; i < browsers.size();  ++i) {
+                        echo "Testing the ${browsers[i]} browser"
+                        
+                    }
+                }
             }
         }
     }
+
 
 }
